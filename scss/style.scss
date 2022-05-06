@@ -1,15 +1,16 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+
+
+@import "general";
+@import "variables";
+@import "mixins";
+@import "breakp";
 
 .image_container {
     margin-left: 15rem;
 }
 
 header {
-    background-color: red;
+    background-color:$primary-color;
     display: flex;
     align-items: center;
     height: 4rem;
@@ -35,10 +36,10 @@ header {
                 text-decoration: none;
                 color: black;
                 font-weight: 100;
-                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-family: 'Roboto Mono', monospace;
                 
                 &:hover {
-                    color: yellow;
+                    color: rgb(254, 254, 154);
                 }
             }
         }
@@ -50,14 +51,14 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: rgb(255, 248, 239);
+    background-color: $tertiary-color;
     width: 100%;
 
     .cardinfo {
         width: 50%;
         h1 {
             padding-bottom: 2rem;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: 'Roboto Mono', monospace;
             span {
                 color: red;
             }
@@ -66,18 +67,18 @@ header {
     
         .presentation {
             width: 60%;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: 'Roboto Mono', monospace;
         }
     }
 
     button {
-        border-color: #dc3545;
-        border-radius: 0.3rem;
+        border-color: $primary-color;
         margin: 1rem;
         padding: 1rem;
-        background-color: #dc3545;
+        background-color: $primary-color;
         color:white;
         font-family:Verdana, Geneva, Tahoma, sans-serif;
+        @include radius(0.3rem);
     }
 
     img {
@@ -95,38 +96,45 @@ main {
 
         img {
             width: 100px;
-            
-
         }
 
         div {
             padding: 5rem;
             margin: 1rem;
-            background-color: rgb(255, 248, 239);
+            background-color: $bgcolor;
             text-align: center;
             border-radius: 5%;
+
+            &:hover {
+                background-color: #212529;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
             
             
             h3 {
-                border-radius: 5rem;
-                background-color: bisque;
-                padding: 2rem;
+                border-radius: 0.5rem;
+                background-color: $tertiary-color;
+                padding: 0.33rem;
+
+                &:hover {
+                    color: rgb(7, 7, 238);                }
             }
         }
 
         .eximage {
-            background-color: #dc3545;
+            background-color: $primary-color;
+            &:hover {
+                background-color: #781821;
+            }
         }
     }
     .container2 {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        background-color: #edeef0;
-        width: 100%;
-        margin-top: 7rem;
-        margin-bottom: 2rem;
-    
+        /*EXTEND modificado*/
+        @extend .container;
+        
+        &:hover{
+            background-color: rgb(229, 228, 228);
+        }
         .cardinfo {
             width: 50%;
             h1 {
@@ -140,18 +148,9 @@ main {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
             }
         }
-    
-        button {
-            border-color: #dc3545;
-            border-radius: 0.3rem;
-            margin: 1rem;
-            padding: 1rem;
-            background-color: #dc3545;
-            color:white;
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
-        }
-    
+
         img {
+            padding: 1.5rem 0 ;
             width: auto;
         }
     
@@ -159,6 +158,39 @@ main {
     
 }
 
+
+@media (max-width: map-get($breakpoints, "tablet")) {
+    body {
+        width: 100%;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        div {
+            padding: 1rem auto;
+        }
+    }
+    
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            display: none;
+        }
+    }
+
+    .container2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            display: none;
+        }
+    }
+}
 
 footer {
     background-color:#212529;

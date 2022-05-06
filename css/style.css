@@ -9,7 +9,7 @@
 }
 
 header {
-  background-color: red;
+  background-color: #f2374a;
   display: flex;
   align-items: center;
   height: 4rem;
@@ -35,43 +35,46 @@ header nav li a {
   text-decoration: none;
   color: black;
   font-weight: 100;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Mono", monospace;
 }
 header nav li a:hover {
-  color: yellow;
+  color: rgb(254, 254, 154);
 }
 
-.container {
+.container, main .container2 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgb(255, 248, 239);
+  background-color: #e9ecef;
   width: 100%;
 }
-.container .cardinfo {
+.container .cardinfo, main .container2 .cardinfo {
   width: 50%;
 }
-.container .cardinfo h1 {
+.container .cardinfo h1, main .container2 .cardinfo h1 {
   padding-bottom: 2rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
-.container .cardinfo h1 span {
+.container .cardinfo h1 span, main .container2 .cardinfo h1 span {
   color: red;
 }
-.container .cardinfo .presentation {
+.container .cardinfo .presentation, main .container2 .cardinfo .presentation {
   width: 60%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
-.container button {
-  border-color: #dc3545;
-  border-radius: 0.3rem;
+.container button, main .container2 button {
+  border-color: #f2374a;
   margin: 1rem;
   padding: 1rem;
-  background-color: #dc3545;
+  background-color: #f2374a;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  border-radius: 0.3rem;
 }
-.container img {
+.container img, main .container2 img {
   width: auto;
 }
 
@@ -87,26 +90,33 @@ main section img {
 main section div {
   padding: 5rem;
   margin: 1rem;
-  background-color: rgb(255, 248, 239);
+  background-color: #343a40;
   text-align: center;
   border-radius: 5%;
 }
+main section div:hover {
+  background-color: #212529;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 main section div h3 {
-  border-radius: 5rem;
-  background-color: bisque;
-  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #e9ecef;
+  padding: 0.33rem;
+}
+main section div h3:hover {
+  color: rgb(7, 7, 238);
 }
 main section .eximage {
-  background-color: #dc3545;
+  background-color: #f2374a;
+}
+main section .eximage:hover {
+  background-color: #781821;
 }
 main .container2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: #edeef0;
-  width: 100%;
-  margin-top: 7rem;
-  margin-bottom: 2rem;
+  /*EXTEND modificado*/
+}
+main .container2:hover {
+  background-color: rgb(229, 228, 228);
 }
 main .container2 .cardinfo {
   width: 50%;
@@ -119,19 +129,44 @@ main .container2 .cardinfo .presentation {
   width: 60%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-main .container2 button {
-  border-color: #dc3545;
-  border-radius: 0.3rem;
-  margin: 1rem;
-  padding: 1rem;
-  background-color: #dc3545;
-  color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 main .container2 img {
+  padding: 1.5rem 0;
   width: auto;
 }
 
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+  section div {
+    padding: 1rem auto;
+  }
+
+  .container, main .container2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container img, main .container2 img {
+    display: none;
+  }
+
+  .container2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container2 img {
+    display: none;
+  }
+}
 footer {
   background-color: #212529;
   width: 100%;
